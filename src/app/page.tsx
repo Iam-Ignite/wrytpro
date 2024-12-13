@@ -347,7 +347,7 @@ export default function Home() {
         </div>
       </div>
       <div className=" flex items-center flex-col mb-8 bg-gray-50">
-        <h1 className="md:text-5xl text-2xl md:w-3/4 text-[#08203A] font-bold text-center  mb-4">
+        <h1 className="md:text-5xl px-4 text-2xl md:w-3/4 text-[#08203A] font-bold text-center  mb-4">
           High-Quality Assignment Assistance For All Assignment Types
         </h1>
         <p className="text-center text-gray-600 md:mb-12">
