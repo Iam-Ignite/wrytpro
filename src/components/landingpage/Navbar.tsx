@@ -1,11 +1,12 @@
-import { useState } from 'react';
-import Link from 'next/link';
-import DropdownMenu from './DropdownMenu';
-import Image from 'next/image';
-import { PiUserList } from 'react-icons/pi';
+import { useState } from "react";
+import Link from "next/link";
+import DropdownMenu from "./DropdownMenu";
+import Image from "next/image";
+import { PiUserList } from "react-icons/pi";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isUserOpen, setIsUserOpen] = useState(false);
 
   const dropdownItems = [
     {
@@ -51,19 +52,28 @@ export default function Navbar() {
       ],
     },
   ];
+  const userToggle = () => {
+    setIsUserOpen((prev) => !prev);
+  };
   
-
   return (
-    <nav className="bg-white shadow">
+    <nav className="bg-white shadow relative">
       <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className='flex items-end'>
-               <Image height={35} width={35} src="/logo.jpeg" alt='logo writer pro'/>
+            <Link href="/" className="flex items-end">
+              <Image
+                height={35}
+                width={35}
+                src="/logo.jpeg"
+                alt="logo writer pro"
+              />
               <span className="text-xl font-bold text-[#092646]">
-                RYTA PRO 
-                <p className='text-xs font-light -mt-2'>Quality and Promptness</p>
+                RYTA PRO
+                <p className="text-xs font-light -mt-2">
+                  Quality and Promptness
+                </p>
               </span>
             </Link>
           </div>
@@ -85,7 +95,11 @@ export default function Navbar() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d={isMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
+                  d={
+                    isMenuOpen
+                      ? "M6 18L18 6M6 6l12 12"
+                      : "M4 6h16M4 12h16M4 18h16"
+                  }
                 />
               </svg>
             </button>
@@ -93,15 +107,21 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-10">
-          <DropdownMenu title="Services" items={dropdownItems} />
-          <Link href="/experts">
-              <span className="text-[#092646] hover:text-[#134783]">Experts</span>
+            <DropdownMenu title="Services" items={dropdownItems} />
+            <Link href="/experts">
+              <span className="text-[#092646] hover:text-[#134783]">
+                Experts
+              </span>
             </Link>
             <Link href="/reviews">
-              <span className="text-[#092646] hover:text-[#134783]">Reviews</span>
+              <span className="text-[#092646] hover:text-[#134783]">
+                Reviews
+              </span>
             </Link>
             <Link href="/about">
-              <span className="text-[#092646] hover:text-[#134783]">About Us</span>
+              <span className="text-[#092646] hover:text-[#134783]">
+                About Us
+              </span>
             </Link>
           </div>
 
@@ -112,8 +132,11 @@ export default function Navbar() {
                 Order Now
               </span>
             </Link>
-            <PiUserList size={35} color='black' />
-
+            <PiUserList
+              size={35}
+              color="black"
+              onClick={userToggle}
+            />
           </div>
         </div>
       </div>
@@ -121,19 +144,28 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white shadow-lg">
-          <div className="space-y-2 px-4 py-4">
+          <div className="space-y-2 px-4 flex flex-col gap-4 text-center py-4">
             <Link href="/services">
-              <span className="block text-gray-700 hover:text-[#134783]">Services</span>
+              <span className="block text-gray-700 hover:text-[#134783]">
+                Services
+              </span>
             </Link>
             <Link href="/experts">
-              <span className="block text-gray-700 hover:text-[#134783]">Experts</span>
+              <span className="block text-gray-700 hover:text-[#134783]">
+                Experts
+              </span>
             </Link>
             <Link href="/reviews">
-              <span className="block text-gray-700 hover:text-[#134783]">Reviews</span>
+              <span className="block text-gray-700 hover:text-[#134783]">
+                Reviews
+              </span>
             </Link>
             <Link href="/about">
-              <span className="block text-gray-700 hover:text-[#134783]">About Us</span>
+              <span className="block text-gray-700 hover:text-[#134783]">
+                About Us
+              </span>
             </Link>
+  
             <Link href="/order">
               <span className="block bg-[#134783] text-white px-4 py-2 rounded-md text-center hover:bg-[#134783]">
                 Order Now
@@ -142,9 +174,23 @@ export default function Navbar() {
           </div>
         </div>
       )}
+      {isUserOpen && (
+        <div className=" bg-white absolute right-28 w-1/6 p-4 -bottom-24 flex flex-col gap-4  border z-50 shadow-lg">
+        
+            <Link href="/about">
+              <span className="block text-gray-700 text-center hover:text-[#134783]">
+                Sign up
+              </span>
+            </Link>
+            <Link href="/login">
+              <span className="block bg-[#134783] text-white px-4 py-2 rounded-md text-center hover:bg-[#134783]">
+                Sign In
+              </span>
+            </Link>
+        </div>
+      )}
     </nav>
   );
 }
 
 // DropdownMenu Component
-

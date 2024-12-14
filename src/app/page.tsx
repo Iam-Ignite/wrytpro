@@ -294,9 +294,9 @@ export default function Home() {
               <div className="border bg-gray-50 p-2 rounded-md border-gray-300">
                 <textarea
                   id="description"
-                  rows={4}
+                  rows={3}
                   placeholder="Provide details..."
-                  className="bg-gray-50 w-full outline-none border-none "
+                  className="bg-gray-50 w-full text-sm outline-none border-none "
                 ></textarea>
                 <input type="file" name="" className="hidden" id="file" />
                 <label className="flex items-center" htmlFor="file">
