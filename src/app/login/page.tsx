@@ -71,7 +71,7 @@ export default function page() {
           </div>
           <button className="button-submit">Sign In</button>
           <Link href={"/signup"} className="p">
-            Don't have an account? <span className="span">Sign Up</span>
+            Don&apos;t have an account? <span className="span">Sign Up</span>
           </Link>
 
           <div className="flex-row"></div>
