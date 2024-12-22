@@ -79,7 +79,7 @@ export default function Navbar() {
           </div>
 
           {/* Menu Toggle (Mobile) */}
-          <div className="md:hidden">
+          <div className="md:hidden flex gap-4">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-700 hover:text-[#134783] focus:outline-none"
@@ -103,6 +103,11 @@ export default function Navbar() {
                 />
               </svg>
             </button>
+            <PiUserList
+              size={35}
+              color="black"
+              onClick={userToggle}
+            />
           </div>
 
           {/* Desktop Menu */}
@@ -175,9 +180,9 @@ export default function Navbar() {
         </div>
       )}
       {isUserOpen && (
-        <div className=" bg-white absolute right-28 w-1/6 p-4 -bottom-24 flex flex-col gap-4  border z-50 shadow-lg">
+        <div className=" bg-white absolute right-6 md:right-28 md:w-1/6 p-4 -bottom-24 flex flex-col gap-4  border z-50 shadow-lg">
         
-            <Link href="/about">
+            <Link href="/signup">
               <span className="block text-gray-700 text-center hover:text-[#134783]">
                 Sign up
               </span>

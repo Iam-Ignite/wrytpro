@@ -8,6 +8,7 @@ import Navbar from "@/components/landingpage/Navbar";
 import ServiceCard from "@/components/landingpage/ServiceCard";
 import Workflow from "@/components/landingpage/Workflow";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 import {
   FaCalendarAlt,
@@ -152,12 +153,23 @@ export default function Home() {
               alt="logo writer pro"
             />
           </div>
-          <button
+         <Link href="/submit-assignment">
+         <button
             type="submit"
-            className="w-full md:hidden bg-[#134783] text-white py-2 mt-4 rounded-md hover:bg-orange-600"
+            className="w-full md:hidden bg-[#134783] text-white py-3 mt-4 rounded-md hover:bg-orange-600"
           >
-            Apply Now
+            Submit an assignment
           </button>
+         </Link>
+        
+        <Link href="/online-class">
+        <button
+            type="submit"
+            className="w-full md:hidden border-[#134783] border text-[#134783] hover:text-white py-3 mt-4 rounded-md hover:bg-[#134783]"
+          >
+            Apply for Online Class
+          </button>
+        </Link>
         </div>
         <div className="w-3/5 hidden md:block  shadow-[#134783] shadow-xl mx-auto z-10 relative mr-10 p-6 border rounded-md">
           <h3 className="text-base text-center font-bold text-[#08203A]">
